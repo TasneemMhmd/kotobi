@@ -114,14 +114,14 @@
 
 .navLinks li a:hover,
 .navLinks li a:focus {
-    background-color: var(--accent-color);
+    background-color: var(--icon-color);
     color: var(--main-color);
 }
 
 .navLinks li:not(:last-child)::after {
     content: "";
     position: absolute;
-    right: -10px;
+    left: -10px;
     top: 50%;
     transform: translateY(-50%);
     height: 60%;

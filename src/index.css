@@ -4,6 +4,7 @@
   --accent-color: #937DC2;
   --background-color: #F8F9FA;
   --text-color: #2B2D42;
+  --icon-color: #C27777;
 }
 
 html {
@@ -47,7 +48,7 @@ ul {
 }
 
 i{
-  color: var(--accent-color);
+  color: var(--icon-color);
   font-size: 1.5rem;
   margin-right: 0.5rem;
 }
