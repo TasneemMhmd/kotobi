@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Nav.module.css";
+import logo from "../../assets/images/logo.png";
 
 export default function Nav() {
     const [isMenuOpen, setMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen(!isMenuOpen);
@@ -12,15 +14,29 @@ export default function Nav() {
         setMenuOpen(false);
     };
 
+    const handleScroll = () => {
+        if (window.scrollY > 10) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
-        <div className={styles.navbar}>
+        <div className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
             <div className={styles.logo}>
-                <h1>كتبي</h1>
+                <img src={logo} alt="Logo" className={styles.logoImage} />
             </div>
 
             <button
-                className={`${styles.menuBtn} ${isMenuOpen ? styles.activeMenuBtn : ""
-                    }`}
+                className={`${styles.menuBtn} ${isMenuOpen ? styles.activeMenuBtn : ""}`}
                 onClick={toggleMenu}
                 aria-label="Toggle menu"
             >
@@ -35,11 +51,10 @@ export default function Nav() {
             />
 
             <div
-                className={`${styles.navLinksContainer} ${isMenuOpen ? styles.showMenu : ""
-                    }`}
+                className={`${styles.navLinksContainer} ${isMenuOpen ? styles.showMenu : ""}`}
             >
                 <div className={styles.menuHeader}>
-                    <span>كتبي</span>
+                    <img src={logo} alt="Logo" className={styles.logoImage} />
                     <button
                         className={styles.closeBtn}
                         onClick={closeMenu}
@@ -50,7 +65,7 @@ export default function Nav() {
                 </div>
                 <ul className={styles.navLinks}>
                     <li>
-                        <a href="#" onClick={closeMenu}>
+                        <a href="#hero" onClick={closeMenu}>
                             الرئيسية
                         </a>
                     </li>
