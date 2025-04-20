@@ -1,0 +1,22 @@
+:root {
+  --main-color: #4B3869;
+  --secondary-color: #DCD6F7;
+  --accent-color: #937DC2;
+  --background-color: #F8F9FA;
+  --text-color: #2B2D42;
+}
+
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--main-color);
+  color: white;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
