@@ -1,0 +1,23 @@
+.footer {
+    background-color: var(--main-color);
+    text-align: center;
+}
+
+.footer h2{
+    color: var(--secondary-color);
+}
+
+.footer h6 {
+    color: var(--icon-color);
+}
+
+.footer h3 {
+    color: var(--secondary-color);
+}
+.footer h2{
+    margin-top: -20px;
+    margin-bottom: 2px; 
+}
+.footer h6, .footer h3 {
+    margin: 10px 0;
+}
