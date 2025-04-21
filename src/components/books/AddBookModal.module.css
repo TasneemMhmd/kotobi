@@ -1,0 +1,143 @@
+/* AddBookModal.module.css */
+
+.dialog {
+    direction: rtl;
+}
+
+.dialog :global(.MuiPaper-root) {
+    max-width: 600px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--bg-color, #fff);
+}
+
+.dialog :global(.MuiDialogTitle-root) {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--primary-color, #3f51b5);
+    border-bottom: 2px solid var(--accent-color, #f0f0f0);
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.dialog :global(.MuiDialogContent-root) {
+    padding: 20px 24px;
+}
+
+/* تخصيص حقول الإدخال */
+.dialog :global(.MuiInputLabel-root) {
+    font-family: inherit;
+    right: 0;
+    left: auto;
+    transform-origin: right top;
+}
+
+.dialog :global(.MuiInputLabel-shrink) {
+    transform-origin: right top;
+}
+
+.dialog :global(.MuiOutlinedInput-root) {
+    text-align: right;
+    direction: rtl;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.dialog :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
+    border-color: var(--primary-color, #3f51b5);
+}
+
+.dialog :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
+    border-color: var(--primary-color, #3f51b5);
+    border-width: 2px;
+}
+
+/* تخصيص الأزرار */
+.dialog :global(.MuiDialogActions-root) {
+    padding: 15px 24px;
+    direction: ltr;
+    /* عكس اتجاه الأزرار ليكون الزر الرئيسي على اليمين */
+    border-top: 2px solid var(--accent-color, #f0f0f0);
+}
+
+.dialog :global(.MuiButton-root) {
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.dialog :global(.MuiButton-root:last-child) {
+    background-color: var(--primary-color, #3f51b5);
+    color: white;
+}
+
+.dialog :global(.MuiButton-root:last-child:hover) {
+    background-color: var(--primary-color-dark, #303f9f);
+}
+
+.dialog :global(.MuiButton-root:first-child) {
+    color: var(--primary-color, #3f51b5);
+}
+
+.dialog :global(.MuiButton-root:first-child:hover) {
+    background-color: rgba(63, 81, 181, 0.08);
+}
+
+/* رسالة الخطأ */
+.error {
+    color: var(--error-color, #f44336);
+    background-color: rgba(244, 67, 54, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+    border-right: 4px solid var(--error-color, #f44336);
+}
+
+/* تحسين التجاوب مع الشاشات الصغيرة */
+@media (max-width: 600px) {
+    .dialog :global(.MuiDialog-paper) {
+        margin: 10px;
+        max-height: calc(100% - 20px);
+    }
+
+    .dialog :global(.MuiDialogTitle-root) {
+        font-size: 1.4rem;
+        padding-bottom: 10px;
+    }
+
+    .dialog :global(.MuiDialogContent-root) {
+        padding: 10px 16px;
+    }
+
+    .dialog :global(.MuiDialogActions-root) {
+        padding: 10px 16px;
+    }
+
+    .dialog :global(.MuiButton-root) {
+        padding: 6px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+/* تأثير انتقالي للمودال */
+.dialog :global(.MuiDialog-container .MuiPaper-root) {
+    animation: modalFade 0.3s ease;
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
