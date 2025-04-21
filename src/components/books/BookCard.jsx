@@ -18,7 +18,7 @@ export default function BookCard({ book, onDelete }) {
                     onClick={handleDeleteClick}
                     aria-label="delete book"
                 >
-                    <Delete fontSize="small" />
+                    <Delete className={styles.icon}/>
                 </IconButton>
                 <h3 className={styles.bookTitle}>{book.title}</h3>
                 <p className={styles.bookAuthor}>{book.author}</p>
