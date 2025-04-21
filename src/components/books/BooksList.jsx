@@ -1,18 +1,23 @@
-// BooksList.jsx
 import { useState } from "react";
 import styles from "./BooksList.module.css";
 import books from "../../utils/data";
 import BookCard from "./BookCard";
+import AddBookModal from "./AddBookModal";
+import DeleteConfirmationModal from "../deleteModal/DeleteConfirmation";
 
 export default function BooksList() {
     const [searchTerm, setSearchTerm] = useState("");
-    const [filterType, setFilterType] = useState("all"); // all, genre, author
+    const [filterType, setFilterType] = useState("all");
     const [selectedFilter, setSelectedFilter] = useState("الكل");
+    const [booksList, setBooksList] = useState(books);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+    const [bookToDelete, setBookToDelete] = useState(null);
 
-    const genres = ["الكل", ...new Set(books.map((book) => book.genre))];
-    const authors = ["الكل", ...new Set(books.map((book) => book.author))];
+    const genres = ["الكل", ...new Set(booksList.map((book) => book.genre))];
+    const authors = ["الكل", ...new Set(booksList.map((book) => book.author))];
 
-    const filteredBooks = books.filter((book) => {
+    const filteredBooks = booksList.filter((book) => {
         const matchesSearch =
             searchTerm === "" ||
             book.title.includes(searchTerm) ||
@@ -29,15 +34,48 @@ export default function BooksList() {
     });
 
     const handleFilterTypeChange = (e) => {
-        const newFilterType = e.target.value;
-        setFilterType(newFilterType);
+        setFilterType(e.target.value);
         setSelectedFilter("الكل");
+    };
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleDeleteClick = (bookId) => {
+        const book = booksList.find(b => b.id === bookId);
+        setBookToDelete(book);
+        setDeleteModalOpen(true);
+    };
+
+    const handleConfirmDelete = () => {
+        setBooksList(booksList.filter(book => book.id !== bookToDelete.id));
+        setDeleteModalOpen(false);
+        setBookToDelete(null);
+    };
+
+    const handleCancelDelete = () => {
+        setDeleteModalOpen(false);
+        setBookToDelete(null);
+    };
+
+    const handleAddBook = (newBook) => {
+        const newId = booksList.length > 0
+            ? Math.max(...booksList.map(book => book.id)) + 1
+            : 1;
+
+        setBooksList([...booksList, { ...newBook, id: newId }]);
+        handleCloseModal();
     };
 
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>
-                <i className="fa-solid fa-book"></i> كتب مميزة{" "}
+                <i className="fa-solid fa-book"></i> كتب مميزة
             </h1>
 
             <div className={styles.filtersContainer}>
@@ -54,7 +92,7 @@ export default function BooksList() {
 
                 <div className={styles.filterTypeContainer}>
                     <label htmlFor="filter-type" className={styles.filterlabel}>
-                        تصفية حسب:{" "}
+                        تصفية حسب:
                     </label>
                     <select
                         id="filter-type"
@@ -95,21 +133,42 @@ export default function BooksList() {
                 {filteredBooks.length > 0 ? (
                     <>
                         {filteredBooks.map((book) => (
-                            <BookCard key={book.id} book={book} />
+                            <BookCard 
+                                key={book.id} 
+                                book={book} 
+                                onDelete={handleDeleteClick} 
+                            />
                         ))}
                         <div
-                            className={`${styles.addCard}`}
+                            className={styles.addCard}
+                            onClick={handleOpenModal}
+                            role="button"
+                            tabIndex={0}
                         >
                             <span>+</span>
                             <div className={styles.overlay}>
-                            <p>أضف كتابك المميز</p>
-                        </div>
+                                <p>أضف كتابك المميز</p>
+                            </div>
                         </div>
                     </>
                 ) : (
                     <p className={styles.noResults}>لا توجد كتب مطابقة لبحثك</p>
                 )}
             </div>
+
+            <DeleteConfirmationModal
+                open={deleteModalOpen}
+                onClose={handleCancelDelete}
+                onConfirm={handleConfirmDelete}
+                bookTitle={bookToDelete?.title || ""}
+            />
+
+            {/* Add Book Modal */}
+            <AddBookModal
+                open={isModalOpen}
+                handleClose={handleCloseModal}
+                handleAddBook={handleAddBook}
+            />
         </div>
     );
 }

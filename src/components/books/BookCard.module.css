@@ -60,6 +60,33 @@
 }
 .bookDescription {
     color: var(--secondary-color);
+    word-wrap: break-word;
+    white-space: normal; 
+    overflow-wrap: break-word; 
+    width: 100%;
+    padding: 0 5px;
+}
+
+.deleteButton {
+    position: absolute;
+    top: -20px;
+    right: -70px;
+    color: #f44336 !important;
+    background-color: var(--background-color) !important;
+    z-index: 2;
+    width: 30px !important;
+    height: 30px !important;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .deleteButton {
+    opacity: 1;
+}
+
+.deleteButton:hover {
+    background-color: #f44336 !important;
+    color: var(--background-color) !important;
 }
 
 @media (max-width: 768px) {
