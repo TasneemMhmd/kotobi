@@ -102,7 +102,7 @@ export default function BooksList() {
     return (
         <div className={styles.container} id="books">
             <h1 className={styles.title}>
-                <i className="fa-solid fa-book"></i> كتب مميزة
+            📖 كتب مميزة
             </h1>
 
             <div className={styles.filtersContainer}>

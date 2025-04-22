@@ -5,6 +5,8 @@ import Hero from './components/hero/Hero'
 import Nav from './components/nav/Nav'
 import BooksList from './components/books/BooksList';
 import Footer from './components/footer/Footer';
+import ContactUs from './components/contact/ContactUs';
+import Quotes from './components/quotes/Quotes';
 
 function App() {
 
@@ -14,6 +16,8 @@ function App() {
       <Hero />
       <About />
       <BooksList />
+      <Quotes />
+      <ContactUs />
       <Footer />
     </>
   )

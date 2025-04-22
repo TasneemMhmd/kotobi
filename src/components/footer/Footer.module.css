@@ -15,7 +15,6 @@
     color: var(--secondary-color);
 }
 .footer h2{
-    margin-top: -20px;
     margin-bottom: 2px; 
 }
 .footer h6, .footer h3 {

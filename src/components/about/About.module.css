@@ -1,17 +1,31 @@
 .about {
     display: flex;
     flex-direction: column;
+    text-align: center;
     align-items: center;
     padding: 0 30px;
     margin-bottom: 30px;
 }
 
-.about h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+.title {
     color: var(--secondary-color);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
 }
 
+.title:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--icon-color);
+    border-radius: 2px;
+}
 .about h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;

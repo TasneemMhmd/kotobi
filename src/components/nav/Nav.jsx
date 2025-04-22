@@ -80,7 +80,12 @@ export default function Nav() {
                         </a>
                     </li>
                     <li>
-                        <a href="#" onClick={closeMenu}>
+                        <a href="#quotes" onClick={closeMenu}>
+                            إقتباسات
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact-us" onClick={closeMenu}>
                             تواصل معنا
                         </a>
                     </li>
