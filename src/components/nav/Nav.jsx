@@ -70,12 +70,12 @@ export default function Nav() {
                         </a>
                     </li>
                     <li>
-                        <a href="#" onClick={closeMenu}>
+                        <a href="#about" onClick={closeMenu}>
                             من نحن
                         </a>
                     </li>
                     <li>
-                        <a href="#" onClick={closeMenu}>
+                        <a href="#books" onClick={closeMenu}>
                             الكتب
                         </a>
                     </li>

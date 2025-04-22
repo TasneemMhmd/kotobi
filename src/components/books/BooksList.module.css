@@ -149,10 +149,88 @@
     color: var(--secondary-color);
 }
 
-@media (max-width: 768px) {
-    .filtersContainer {
-        gap: 1px;
+.bookCardContainer {
+    position: relative;
+    width: 200px;
+    height: 300px;
+}
+
+.cardButtons {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    z-index: 10;
+}
+
+.actionButton {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    width: 32px !important;
+    height: 32px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.favoriteButton {
+    color: #757575 !important;
+}
+
+.favoriteButton.favorited {
+    color: #f44336 !important;
+}
+
+.favoriteButton:hover {
+    background-color: #f44336 !important;
+    color: white !important;
+}
+
+.deleteButton {
+    color: #757575 !important;
+}
+
+.deleteButton:hover {
+    background-color: #f44336 !important;
+    color: white !important;
+}
+
+.favoriteToggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    border: 0px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #f44336 ;
+    border-radius: 50%;
+
+}
+
+.favoriteToggle:hover {
+    background-color: #f44336 !important;
+    color: var(--secondary-color) !important;
+}
+.favoriteToggle:hover svg {
+    color: var(--secondary-color) !important;
     }
+
+.favoriteToggle.active {
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+}
+
+.favoriteToggle.active svg {
+    color: #f44336 ;
+    }
+
+
+@media (max-width: 768px) {
     
     .searchContainer {
         width: 100%;
@@ -164,4 +242,5 @@
         width: 100%;
         height: 400px; 
     }
+
 }

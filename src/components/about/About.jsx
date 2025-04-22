@@ -2,7 +2,7 @@ import styles from "./About.module.css";
 
 export default function About() {
     return (
-        <div className={styles.about}>
+        <div className={styles.about} id="about">
             <div className={styles.aboutContent}>
                 <h1>
                     <i className="fa-solid fa-circle-info"></i> من نحن

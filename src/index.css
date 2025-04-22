@@ -5,6 +5,8 @@
   --background-color: #F8F9FA;
   --text-color: #2B2D42;
   --icon-color: #C27777;
+  --deep-purple: #9e319e;
+
 }
 
 html {
@@ -48,7 +50,7 @@ ul {
 }
 
 i{
-  color: var(--icon-color);
+  color: var(--deep-purple);
   font-size: 1.5rem;
   margin-right: 0.5rem;
 }
