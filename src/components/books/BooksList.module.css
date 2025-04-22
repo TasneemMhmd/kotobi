@@ -236,8 +236,7 @@
 
 
 @media (max-width: 768px) {
-    
-    .searchContainer {
+        .searchContainer {
         width: 100%;
         margin-bottom: 1rem;
     }
@@ -246,6 +245,9 @@
         align-items: center;
         width: 100%;
         height: 400px; 
+    }
+    .filterSelect {
+        padding: 10px 5px;
     }
 
 }
